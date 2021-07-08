@@ -12,6 +12,9 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.ContactoViewHolder>{
@@ -30,8 +33,9 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     }
     //Asocia cada elemento de la lista a cada view
     @Override
-    public void onBindViewHolder(ContactoAdaptador.ContactoViewHolder holder, int position) {
+    public void onBindViewHolder(ContactoViewHolder holder, int position) {
         final Contacto contacto = contactos.get(position);
+        Picasso.with(activity).load(contacto.getUrlFoto()).placeholder(R.drawable.phone).into(holder.imgFoto);
         //holder.imgFoto.setImageResource(contacto.getFoto());
         //holder.tvCardNombre.setText(contacto.getNombre());
         //holder.tvCardCelular.setText(contacto.getCelular());;

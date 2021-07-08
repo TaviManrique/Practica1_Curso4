@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class DetalleContacto extends AppCompatActivity {
 
     //private TextView tvNombre;
@@ -20,7 +22,7 @@ public class DetalleContacto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.contacto_detalle);
+        setContentView(R.layout.activity_detalle_foto);
 
         Bundle parametros = getIntent().getExtras();
         String url = parametros.getString("url");
@@ -28,6 +30,9 @@ public class DetalleContacto extends AppCompatActivity {
 
         tvLikesDetalle = (TextView) findViewById(R.id.tvLikesDetalle);
         tvLikesDetalle.setText(String.valueOf(likes));
+        imgFotoDetalle = (ImageView) findViewById(R.id.imgFotoDetalle);
+
+        Picasso.with(this).load(url).placeholder(R.drawable.phone).into(imgFotoDetalle);
     }
     /*
     public void llamar(View view){
